@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: '1차 과제'),
     );
   }
 }
@@ -42,19 +42,29 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
-        title: Text(widget.title),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            tooltip: '뒤로가기 버튼',
+            icon: const Icon(Icons.arrow_back)),
+        actions: const [
+          IconButton(onPressed: null, tooltip: '메뉴 바', icon: Icon(Icons.menu),)
+        ],
+        title: const Text('1차 과제'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                print("버튼 클릭됨");
+              },
+              style: ElevatedButton.styleFrom(primary: Colors.amber),
+              child: const Text("Click me"),),
             const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+                '버튼을 누르면 이동합니다.'
             ),
           ],
         ),
